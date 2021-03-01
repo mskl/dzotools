@@ -1,3 +1,3 @@
-# DZO Homeworks
+# Title
 
-Homeworks for the Digital Image Processing class at FIT CTU.
+
