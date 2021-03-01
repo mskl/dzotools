@@ -2,11 +2,16 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"Card": "00_card.ipynb",
-         "Deck": "01_deck.ipynb"}
+index = {"imgload": "01_monadic.ipynb",
+         "arr2img": "01_monadic.ipynb",
+         "clipvals": "01_monadic.ipynb",
+         "brightness": "01_monadic.ipynb",
+         "contrast": "01_monadic.ipynb",
+         "plot_hist": "01_monadic.ipynb",
+         "plot_cdf": "01_monadic.ipynb",
+         "equalize": "01_monadic.ipynb"}
 
-modules = ["card.py",
-           "deck.py"]
+modules = ["monadic.py"]
 
 doc_url = "https://mskl.github.io/dzotools/"
 

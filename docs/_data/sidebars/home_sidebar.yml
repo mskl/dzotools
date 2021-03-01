@@ -10,11 +10,8 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Card
-      url: card.html
-    - output: web,pdf
-      title: Deck
-      url: deck.html
+      title: 'Task 1: Monadic operations'
+      url: monadic.html
     output: web
     title: dzotools
   output: web

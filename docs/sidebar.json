@@ -1,7 +1,6 @@
 {
   "dzotools": {
     "Overview": "/",
-    "Card": "card.html",
-    "Deck": "deck.html"
+    "Task 1: Monadic operations": "monadic.html"
   }
 }
