@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: 'Task 1: Monadic operations'
       url: monadic.html
+    - output: web,pdf
+      title: Title
+      url: utils.html
     output: web
     title: dzotools
   output: web

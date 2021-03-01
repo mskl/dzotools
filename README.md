@@ -2,43 +2,24 @@
 > Tools and submitted homeworks.
 
 
+The project is hosted on the CTU gitlab as well as publicly on GitHub. To view the documentation and submitted homeworks I highly recommend using the generated documentation available at [https://mskl.github.io/dzotools/](https://mskl.github.io/dzotools/).
+
+### Homework submissions
+- [01: Monadic operations](https://mskl.github.io/dzotools/monadic.html)
+
 ```python
-from nbdev import *
-```
+from dzotools.utils import imgload, arr2img
 
-The documentation should be automatically generated and hosted on github pages.
+# To load the image into numpy array
+arr = imgload(path="data/lenna.png")
 
-```python
-from dzotools.monadic import imgload, arr2img
-
-arr = imgload()
+# To draw the numpy array
 arr2img(arr)
 ```
 
 
 
 
-![png](docs/images/output_2_0.png)
+![png](docs/images/output_1_0.png)
 
 
-
-### Brightness
-
-```python
-from dzotools.monadic import brightness
-```
-
-
-    ---------------------------------------------------------------------------
-
-    ImportError                               Traceback (most recent call last)
-
-    <ipython-input-23-9cd6e7033402> in <module>
-    ----> 1 from dzotools.monadic import brightness
-    
-
-    ImportError: cannot import name 'brightness' from 'dzotools.monadic' (/Users/matyas/dzotools/dzotools/monadic.py)
-
-from dzotools.monadic import brightness
-
-brightness(arr, 100)

@@ -2,16 +2,17 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"imgload": "01_monadic.ipynb",
-         "arr2img": "01_monadic.ipynb",
-         "clipvals": "01_monadic.ipynb",
-         "brightness": "01_monadic.ipynb",
+index = {"brightness": "01_monadic.ipynb",
          "contrast": "01_monadic.ipynb",
-         "plot_hist": "01_monadic.ipynb",
-         "plot_cdf": "01_monadic.ipynb",
-         "equalize": "01_monadic.ipynb"}
+         "equalize": "01_monadic.ipynb",
+         "imgload": "utils.ipynb",
+         "arr2img": "utils.ipynb",
+         "clipvals": "utils.ipynb",
+         "plot_hist": "utils.ipynb",
+         "plot_cdf": "utils.ipynb"}
 
-modules = ["monadic.py"]
+modules = ["monadic.py",
+           "utils.py"]
 
 doc_url = "https://mskl.github.io/dzotools/"
 
