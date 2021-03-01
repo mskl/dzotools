@@ -16,6 +16,6 @@ modules = ["monadic.py",
 
 doc_url = "https://mskl.github.io/dzotools/"
 
-git_url = "https://github.com/mskl/dzotools/tree/master/"
+git_url = "https://github.com/mskl/fit-ni-dzo/tree/master/"
 
 def custom_doc_links(name): return None
