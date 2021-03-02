@@ -1,9 +1,9 @@
 {
   "dzotools": {
     "Overview": "/",
-    "Utils": "utils.html",
-    "Homeworks": {
-      "Task 1: Monadic operations": "monadic.html"
-    }
+    "Utils": "utils.html"
+  },
+  "Homeworks": {
+    "Task 1: Monadic operations": "monadic.html"
   }
 }
