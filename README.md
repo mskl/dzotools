@@ -2,7 +2,7 @@
 > Tools and submitted homeworks.
 
 
-The project is hosted on the CTU gitlab as well as publicly on GitHub. To view the documentation and submitted homeworks I highly recommend using the generated documentation available at [https://mskl.github.io/dzotools/](https://mskl.github.io/dzotools/).
+The project is hosted on the CTU gitlab as well as publicly on GitHub. To view the documentation and submitted homeworks I highly recommend using the generated documentation available at [https://mskl.github.io/fit-ni-dzo/](https://mskl.github.io/fit-ni-dzo/).
 
 ### Homework submissions
 - [01: Monadic operations](https://mskl.github.io/fit-ni-dzo/monadic.html)
