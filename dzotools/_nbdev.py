@@ -14,7 +14,7 @@ index = {"brightness": "01_monadic.ipynb",
 modules = ["monadic.py",
            "utils.py"]
 
-doc_url = "https://mskl.github.io/dzotools/"
+doc_url = "https://mskl.github.io/fit-ni-dzo/"
 
 git_url = "https://github.com/mskl/fit-ni-dzo/tree/master/"
 
