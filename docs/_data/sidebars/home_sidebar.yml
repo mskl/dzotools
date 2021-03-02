@@ -12,13 +12,13 @@ entries:
     - output: web,pdf
       title: Utils
       url: utils.html
+    - output: web
+      subfolders:
+      - output: web,pdf
+        title: 'Task 1: Monadic operations'
+        url: monadic.html
+      title: Homeworks
     output: web
     title: dzotools
-  - folderitems:
-    - output: web,pdf
-      title: 'Task 1: Monadic operations'
-      url: monadic.html
-    output: web
-    title: Homeworks
   output: web
   title: Sidebar
