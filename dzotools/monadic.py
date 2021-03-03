@@ -11,14 +11,12 @@ from collections import Counter
 # Cell
 def brightness(arr: np.array, adjust: int) -> Image:
     """Adjust the brightness of the image. Input an integer between -255 and 255 for the desired effect."""
-    arr = clipvals(arr + adjust)
-    return arr2img(arr)
+    return clipvals(arr + adjust)
 
 # Cell
-def contrast(arr: np.array, adjust: float) -> Image:
+def contrast(arr: np.array, adjust: float) -> np.array:
     """Adjust the contrast of the image."""
-    arr =  clipvals(arr * adjust)
-    return arr2img(arr)
+    return clipvals(arr * adjust)
 
 # Cell
 def equalize(arr: np.array) -> np.array:
