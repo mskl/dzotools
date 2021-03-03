@@ -9,7 +9,7 @@ from PIL import Image
 from collections import Counter
 
 # Cell
-def brightness(arr: np.array, adjust: int) -> Image:
+def brightness(arr: np.array, adjust: int) -> np.array:
     """Adjust the brightness of the image. Input an integer between -255 and 255 for the desired effect."""
     return clipvals(arr + adjust)
 

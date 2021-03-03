@@ -4,7 +4,7 @@ SRC = $(wildcard ./*.ipynb)
 
 all: dzotools docs
 
-git: dzotools docs test
+git: dzotools test docs
 
 dzotools: $(SRC)
 	nbdev_build_lib
