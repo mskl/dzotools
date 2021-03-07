@@ -5,6 +5,8 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"brightness": "01_monadic.ipynb",
          "contrast": "01_monadic.ipynb",
          "equalize": "01_monadic.ipynb",
+         "arr": "02_fourier.ipynb",
+         "spectrum": "02_fourier.ipynb",
          "imgload": "utils.ipynb",
          "arr2img": "utils.ipynb",
          "clipvals": "utils.ipynb",
@@ -12,6 +14,7 @@ index = {"brightness": "01_monadic.ipynb",
          "plot_cdf": "utils.ipynb"}
 
 modules = ["monadic.py",
+           "fourier.py",
            "utils.py"]
 
 doc_url = "https://mskl.github.io/fit-ni-dzo/"
