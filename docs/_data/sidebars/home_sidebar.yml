@@ -13,7 +13,7 @@ entries:
       title: Utils
       url: utils.html
     output: web
-    title: dzotools
+    title: DZOTools
   - folderitems:
     - output: web,pdf
       title: 'Task 1: Monadic operations'
