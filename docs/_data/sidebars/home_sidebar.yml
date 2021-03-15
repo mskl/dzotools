@@ -18,6 +18,9 @@ entries:
     - output: web,pdf
       title: 'Task 1: Monadic operations'
       url: monadic.html
+    - output: web,pdf
+      title: 'Task 2: Fourier transform'
+      url: fourier.html
     output: web
     title: Homeworks
   output: web
