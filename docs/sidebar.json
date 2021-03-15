@@ -4,7 +4,7 @@
     "Utils": "utils.html"
   },
   "Homeworks": {
-    "Task 1: Monadic operations": "monadic.html"
+    "Task 1: Monadic operations": "monadic.html",
     "Task 2: Fourier transform": "fourier.html"
   }
 }
