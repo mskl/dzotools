@@ -12,4 +12,4 @@ arr2img(arr)
 import numpy as np
 
 spectrum = np.fft.fft2(np.exp(arr))
-arr2img(np.log(1+np.abs(spectrum))*40)
+arr2img(np.log(1+np.abs(spectrum))*256)
