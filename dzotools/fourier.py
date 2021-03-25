@@ -23,5 +23,12 @@ def fft_amplitude(arr: np.array) -> np.array:
     # Contains complex numbers (x.real, x.imag)
     spectrum = fft2(arr)
 
+    # swap the first quadrant of X with the third, and the second quadrant with the fourth
+    mid = (np.asarray(spectrum.shape) / 2).astype(int)
+    reconfigured = np.block([
+        [spectrum[mid[0]:, mid[1]:], spectrum[mid[0]:, :mid[1]]],
+        [spectrum[:mid[0], mid[1]:], spectrum[:mid[0], :mid[1]]]
+    ])
+
     # np.abs gives magnitude of complex number i.e. sqrt(a^2 + b^2)
-    return np.abs(spectrum)
+    return np.abs(reconfigured)
