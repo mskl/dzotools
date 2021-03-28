@@ -7,7 +7,7 @@ import numpy as np
 
 # Cell
 def gauss1D(sigma: float, bounds: tuple = (-3, 3)) -> np.array:
-    """Get the kernel between bounded by sigma values."""
+    """Get normalized kernel bounded by sigma values."""
     domain = np.arange(bounds[0]*sigma, bounds[1]*sigma + 1)
     kernel = np.exp(-(domain - 0.0)**2 / (2 * sigma**2))
     return kernel / np.sum(kernel)
@@ -15,16 +15,16 @@ def gauss1D(sigma: float, bounds: tuple = (-3, 3)) -> np.array:
 # Cell
 def conv1D(row: np.array, cfilter: np.array, pad="constant") -> np.array:
     """
-    Do a 1D convolution of given filter over the input array.
-    Edges are padded with zeros, input and output size match.
+    Do a 1D convolution of a given filter over the input array.
+
+    Edges are padded with pad strategy, input and output size match.
     Param `pad` controls padding. Eg. `constant` or `edge`.
     """
 
-    # halfwidth not including the center <width, c, width>
+    # halfwidth not including the center <hw, c, hw>
     hw = len(cfilter) // 2
 
     # When hw is 2, we get padded array (0, 0, a, a, a, 0, 0)
-    # Resulting length is hw + len + hw
     padded = np.pad(row, pad_width=(hw, hw), mode=pad)
     result = np.zeros_like(padded)
 
@@ -36,7 +36,7 @@ def conv1D(row: np.array, cfilter: np.array, pad="constant") -> np.array:
 # Cell
 def gaussian_blur(arr: np.array, sigma: float, pad="edge") -> np.array:
     """
-    Apply the gaussian blur by separable convolutions over 2D input image.
+    Apply the gaussian blur by separable gaussian convolutions over 2D input.
     Note that this method currently only supports B/W (2 channel) inputs.
     """
 

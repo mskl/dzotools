@@ -96,7 +96,7 @@ nb_path: "03_convolution.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="gauss1D" class="doc_header"><code>gauss1D</code><a href="https://github.com/mskl/fit-ni-dzo/tree/master/dzotools/convolution.py#L9" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gauss1D</code>(<strong><code>sigma</code></strong>:<code>float</code>, <strong><code>bounds</code></strong>:<code>tuple</code>=<em><code>(-3, 3)</code></em>)</p>
 </blockquote>
-<p>Get the kernel between bounded by sigma values.</p>
+<p>Get normalized kernel bounded by sigma values.</p>
 
 </div>
 
@@ -116,7 +116,7 @@ nb_path: "03_convolution.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gauss1D</span><span class="p">(</span><span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bounds</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Get the kernel between bounded by sigma values.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Get normalized kernel bounded by sigma values.&quot;&quot;&quot;</span>
     <span class="n">domain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">sigma</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">domain</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">kernel</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span>
@@ -191,8 +191,8 @@ nb_path: "03_convolution.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="conv1D" class="doc_header"><code>conv1D</code><a href="https://github.com/mskl/fit-ni-dzo/tree/master/dzotools/convolution.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>conv1D</code>(<strong><code>row</code></strong>:<code>array</code>, <strong><code>cfilter</code></strong>:<code>array</code>, <strong><code>pad</code></strong>=<em><code>'constant'</code></em>)</p>
 </blockquote>
-<p>Do a 1D convolution of given filter over the input array.
-Edges are padded with zeros, input and output size match.
+<p>Do a 1D convolution of a given filter over the input array.</p>
+<p>Edges are padded with pad strategy, input and output size match.
 Param <code>pad</code> controls padding. Eg. <code>constant</code> or <code>edge</code>.</p>
 
 </div>
@@ -214,16 +214,16 @@ Param <code>pad</code> controls padding. Eg. <code>constant</code> or <code>edge
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">conv1D</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">cfilter</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Do a 1D convolution of given filter over the input array. </span>
-<span class="sd">    Edges are padded with zeros, input and output size match.</span>
+<span class="sd">    Do a 1D convolution of a given filter over the input array. </span>
+<span class="sd">    </span>
+<span class="sd">    Edges are padded with pad strategy, input and output size match.</span>
 <span class="sd">    Param `pad` controls padding. Eg. `constant` or `edge`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="c1"># halfwidth not including the center &lt;width, c, width&gt;</span>
+    <span class="c1"># halfwidth not including the center &lt;hw, c, hw&gt;</span>
     <span class="n">hw</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cfilter</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
     
     <span class="c1"># When hw is 2, we get padded array (0, 0, a, a, a, 0, 0)</span>
-    <span class="c1"># Resulting length is hw + len + hw</span>
     <span class="n">padded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">pad_width</span><span class="o">=</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">hw</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">pad</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">padded</span><span class="p">)</span>
         
@@ -313,7 +313,6 @@ Param <code>pad</code> controls padding. Eg. <code>constant</code> or <code>edge
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lena</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="c1"># Iterate over each column position</span>
     <span class="n">result</span><span class="p">[:,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">conv1D</span><span class="p">(</span><span class="n">lena</span><span class="p">[:,</span> <span class="n">x</span><span class="p">],</span> <span class="n">kernel</span><span class="p">,</span> <span class="s2">&quot;edge&quot;</span><span class="p">)</span>
 
 <span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
@@ -353,7 +352,6 @@ Param <code>pad</code> controls padding. Eg. <code>constant</code> or <code>edge
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lena</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-    <span class="c1"># Iterate over each row position</span>
     <span class="n">result</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">conv1D</span><span class="p">(</span><span class="n">lena</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="p">:],</span> <span class="n">kernel</span><span class="p">,</span> <span class="s2">&quot;edge&quot;</span><span class="p">)</span>
     
 <span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
@@ -387,7 +385,7 @@ Param <code>pad</code> controls padding. Eg. <code>constant</code> or <code>edge
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Putting-it-all-together:-2D-Gaussian-blur">Putting it all together: 2D Gaussian blur<a class="anchor-link" href="#Putting-it-all-together:-2D-Gaussian-blur"> </a></h3><p>Putting it all together - apply the 1D filter separately over each dimension.</p>
+<h3 id="Putting-it-all-together:-2D-Gaussian-blur">Putting it all together: 2D Gaussian blur<a class="anchor-link" href="#Putting-it-all-together:-2D-Gaussian-blur"> </a></h3><p>Putting it all together - apply the 1D filter separately over each dimension to obtain 2D gaussian blur.</p>
 
 </div>
 </div>
@@ -405,7 +403,7 @@ Param <code>pad</code> controls padding. Eg. <code>constant</code> or <code>edge
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="gaussian_blur" class="doc_header"><code>gaussian_blur</code><a href="https://github.com/mskl/fit-ni-dzo/tree/master/dzotools/convolution.py#L37" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gaussian_blur</code>(<strong><code>arr</code></strong>:<code>array</code>, <strong><code>sigma</code></strong>:<code>float</code>, <strong><code>pad</code></strong>=<em><code>'edge'</code></em>)</p>
 </blockquote>
-<p>Apply the gaussian blur by separable convolutions over 2D input image.
+<p>Apply the gaussian blur by separable gaussian convolutions over 2D input.
 Note that this method currently only supports B/W (2 channel) inputs.</p>
 
 </div>
@@ -427,7 +425,7 @@ Note that this method currently only supports B/W (2 channel) inputs.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_blur</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s2">&quot;edge&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Apply the gaussian blur by separable convolutions over 2D input image.</span>
+<span class="sd">    Apply the gaussian blur by separable gaussian convolutions over 2D input.</span>
 <span class="sd">    Note that this method currently only supports B/W (2 channel) inputs.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
@@ -456,9 +454,7 @@ Note that this method currently only supports B/W (2 channel) inputs.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">gaussian_blur</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">gaussian_blur</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -494,9 +490,7 @@ Note that this method currently only supports B/W (2 channel) inputs.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">gaussian_blur</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">gaussian_blur</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -532,9 +526,7 @@ Note that this method currently only supports B/W (2 channel) inputs.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">gaussian_blur</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-
-<span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">draw_pair</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="n">gaussian_blur</span><span class="p">(</span><span class="n">lena</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
