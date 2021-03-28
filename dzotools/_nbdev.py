@@ -7,6 +7,9 @@ index = {"brightness": "01_monadic.ipynb",
          "equalize": "01_monadic.ipynb",
          "draw_pair": "02_fourier.ipynb",
          "fft_amplitude": "02_fourier.ipynb",
+         "gauss1D": "03_convolution.ipynb",
+         "conv1D": "03_convolution.ipynb",
+         "gaussian_blur": "03_convolution.ipynb",
          "imgload": "utils.ipynb",
          "arr2img": "utils.ipynb",
          "clipvals": "utils.ipynb",
@@ -15,6 +18,7 @@ index = {"brightness": "01_monadic.ipynb",
 
 modules = ["monadic.py",
            "fourier.py",
+           "convolution.py",
            "utils.py"]
 
 doc_url = "https://mskl.github.io/fit-ni-dzo/"
