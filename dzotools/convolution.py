@@ -7,7 +7,7 @@ import numpy as np
 
 # Cell
 def gauss1D(sigma: float, bounds: tuple = (-3, 3)) -> np.array:
-    """Get normalized kernel bounded by sigma values."""
+    """Get normalized kernel bounded by given sigma bounds."""
     domain = np.arange(bounds[0]*sigma, bounds[1]*sigma + 1)
     kernel = np.exp(-(domain - 0.0)**2 / (2 * sigma**2))
     return kernel / np.sum(kernel)
@@ -52,7 +52,7 @@ def separable_blur(arr: np.array, sigma: float, pad="edge") -> np.array:
 
 # Cell
 def gauss2D(sigma: float, bounds: tuple = (-3, 3)) -> np.array:
-    """Get normalized 2D gauss kernel bounded by sigma values."""
+    """Get normalized 2D gauss kernel bounded by sigma bounds."""
     domain = np.arange(bounds[0]*sigma, bounds[1]*sigma + 1)
     dom_x, dom_y = np.meshgrid(domain, domain)
     kernel = np.exp(-(dom_x**2 + dom_y**2) / (2 * sigma**2))
