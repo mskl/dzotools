@@ -26,7 +26,7 @@ def conv1D(row: np.array, cfilter: np.array, pad="edge") -> np.array:
 
     # When hw is 2, we get padded array (0, 0, a, a, a, 0, 0)
     padded = np.pad(row, pad_width=(hw, hw), mode=pad)
-    result = np.zeros_like(padded)
+    result = np.zeros_like(padded, dtype="float32")
 
     for c in range(hw, len(row) + hw):
         result[c] = np.dot(padded[c-hw: c+hw+1], cfilter)
@@ -41,7 +41,7 @@ def separable_blur(arr: np.array, sigma: float, pad="edge") -> np.array:
     """
 
     kernel = gauss1D(sigma)
-    result = np.zeros_like(arr)
+    result = np.zeros_like(arr, dtype="float32")
 
     for x in range(arr.shape[0]): # columns
         result[:, x] = conv1D(arr[:, x], kernel, pad)
@@ -70,7 +70,7 @@ def conv2D(arr: np.array, cfilter: np.array, pad="edge") -> np.array:
 
     # When hw is 2, we get padded array (0, 0, a, a, a, 0, 0)
     padded = np.pad(arr, pad_width=(hw, hw), mode=pad)
-    result = np.zeros_like(padded)
+    result = np.zeros_like(padded, dtype="float32")
 
     for x in range(hw, arr.shape[0] + hw):
         for y in range(hw, arr.shape[1] + hw):
