@@ -24,6 +24,9 @@ entries:
     - output: web,pdf
       title: 'Task 3: Convolution'
       url: convolution.html
+    - output: web,pdf
+      title: 'Task 4: Bilateral filter'
+      url: bilateral.html
     output: web
     title: Homeworks
   output: web
