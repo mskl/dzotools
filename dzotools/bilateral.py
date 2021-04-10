@@ -29,19 +29,12 @@ def bilateral_filter(
     g kernel is large. The kernel is generated in bounds
     of plus/minus 3 sigma.
     """
-    def log_sub_fun(x, y):
-        return np.subtract(np.log1p(x), np.log1p(y))
-
-    def log_frac_fun(x, y):
-        return np.log1p(x) / np.log1p(y)
 
     # Select the distance function
     if distance == "subtract":
         dist_fun = np.subtract
     elif distance == "logsubtract":
-        dist_fun = log_sub_fun
-    elif distance == "logfraction":
-        dist_fun = log_frac_fun
+        dist_fun = lambda x, y: np.log1p(x) - np.log1p(y)
 
     # The 2D gaussian filter precalculated for (-3, 3) sigma
     filter_g = gauss2D(g_sigma)
