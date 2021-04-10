@@ -12,6 +12,9 @@ index = {"brightness": "01_monadic.ipynb",
          "separable_blur": "03_convolution.ipynb",
          "gauss2D": "03_convolution.ipynb",
          "conv2D": "03_convolution.ipynb",
+         "naive_blur": "03_convolution.ipynb",
+         "point_gauss": "04_bilateral_filter.ipynb",
+         "bilateral_filter": "04_bilateral_filter.ipynb",
          "imgload": "utils.ipynb",
          "arr2img": "utils.ipynb",
          "clipvals": "utils.ipynb",
@@ -21,6 +24,7 @@ index = {"brightness": "01_monadic.ipynb",
 modules = ["monadic.py",
            "fourier.py",
            "convolution.py",
+           "bilateral.py",
            "utils.py"]
 
 doc_url = "https://mskl.github.io/fit-ni-dzo/"
