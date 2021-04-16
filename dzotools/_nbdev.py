@@ -15,6 +15,7 @@ index = {"brightness": "01_monadic.ipynb",
          "naive_blur": "03_convolution.ipynb",
          "point_gauss": "04_bilateral.ipynb",
          "bilateral_filter": "04_bilateral.ipynb",
+         "Solver": "05_image_blending.ipynb",
          "imgload": "utils.ipynb",
          "arr2img": "utils.ipynb",
          "clipvals": "utils.ipynb",
@@ -25,6 +26,7 @@ modules = ["monadic.py",
            "fourier.py",
            "convolution.py",
            "bilateral.py",
+           "image_blending.py",
            "utils.py"]
 
 doc_url = "https://mskl.github.io/fit-ni-dzo/"
