@@ -4,8 +4,9 @@ __all__ = ['SparseMatrix']
 
 # Cell
 class SparseMatrix:
-    def __init__(self, heigth, width):
+    def __init__(self, heigth, width, safe=False):
         self.heigth, self.width = heigth, width
+        self.safe = safe
 
         # Working memory to speed up reallocation
         self.out = np.zeros(width, dtype="float32")
@@ -28,7 +29,7 @@ class SparseMatrix:
         y, x = location
 
         row = self.rows[y]
-        if x in row and row[x] != value:
+        if self.safe and x in row and row[x] != value:
             print(f"Overwriting row/col {y}/{x} value from {row[x]} to {value}!")
 
         self.rows[y][x] = value
@@ -36,7 +37,7 @@ class SparseMatrix:
     __array_priority__ = 10000
 
     def __mul__(self, x: np.array) -> np.array:
-        """Multiplication with a numpy array. Could perhaps be faster?"""
+        """Multiplication with a numpy array."""
         self.out = np.zeros_like(self.out, dtype="float32")
         for y, row in self.rows.items():
             k = np.fromiter(row.keys(), dtype="int32")
