@@ -15,7 +15,9 @@ index = {"brightness": "01_monadic.ipynb",
          "naive_blur": "03_convolution.ipynb",
          "point_gauss": "04_bilateral.ipynb",
          "bilateral_filter": "04_bilateral.ipynb",
-         "SparseMatrix": "05_image_blending.ipynb",
+         "WrappedNdArray": "05_image_blending.ipynb",
+         "laplace_op": "05_image_blending.ipynb",
+         "SparseMatrix": "05_image_blending_old.ipynb",
          "imgload": "utils.ipynb",
          "arr2img": "utils.ipynb",
          "clipvals": "utils.ipynb",
@@ -27,6 +29,7 @@ modules = ["monadic.py",
            "convolution.py",
            "bilateral.py",
            "image_blending.py",
+           "image_blending_old.py",
            "utils.py"]
 
 doc_url = "https://mskl.github.io/fit-ni-dzo/"
