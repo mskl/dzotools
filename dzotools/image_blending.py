@@ -18,6 +18,13 @@ class SparseMatrix:
     def shape(self):
         return (self.heigth, self.width)
 
+    def to_numpy(self) -> np.array:
+        arr = np.zeros((self.heigth, self.width), dtype="float32")
+        for y, row in self.rows.items():
+            k = np.fromiter(row.keys(), dtype="int32")
+            arr[y, k] = np.fromiter(row.values(), dtype="float32")
+        return arr
+
     def __getitem__(self, location):
         """Get the value or default to zero."""
         y, x = location
