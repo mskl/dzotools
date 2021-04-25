@@ -3,6 +3,9 @@
 __all__ = ['WrappedNdArray', 'laplace_op']
 
 # Cell
+import numpy as np
+
+# Cell
 class WrappedNdArray:
     """Wraps an ndarray and only returns value if within bounds."""
     def __init__(self, array: np.ndarray):

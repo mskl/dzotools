@@ -7,6 +7,7 @@
     "Task 1: Monadic operations": "monadic.html",
     "Task 2: Fourier transform": "fourier.html",
     "Task 3: Convolution": "convolution.html",
-    "Task 4: Bilateral filter": "bilateral.html"
+    "Task 4: Bilateral filter": "bilateral.html",
+    "Task 5: Gradient domain blending": "image_blending.html"
   }
 }
