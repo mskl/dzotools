@@ -11,7 +11,6 @@ The project is hosted on the CTU gitlab as well as publicly on GitHub. To view t
 - [04: Bilateral filter](https://mskl.github.io/fit-ni-dzo/bilateral.html)
 - [05: Gradient domain blending](https://mskl.github.io/fit-ni-dzo/image_blending.html)
 
-
 ```python
 from dzotools.utils import imgload, arr2img
 
