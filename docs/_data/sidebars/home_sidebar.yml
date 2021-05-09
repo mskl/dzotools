@@ -28,7 +28,7 @@ entries:
       title: 'Task 4: Bilateral filter'
       url: bilateral.html
     - output: web,pdf
-      title: 'Task 5: Gradient domain blending'
+      title: 'Task 5: Gradient blending'
       url: image_blending.html
     output: web
     title: Homeworks
