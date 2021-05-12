@@ -20,6 +20,10 @@ index = {"brightness": "01_monadic.ipynb",
          "prepare_target": "05_image_blending.ipynb",
          "show_blending_parts": "05_image_blending.ipynb",
          "gauss_seidel": "05_image_blending.ipynb",
+         "GREEN": "06_image_segmentation.ipynb",
+         "RED": "06_image_segmentation.ipynb",
+         "rescale": "06_image_segmentation.ipynb",
+         "get_maxflow_graph": "06_image_segmentation.ipynb",
          "imgload": "utils.ipynb",
          "arr2img": "utils.ipynb",
          "clipvals": "utils.ipynb",
@@ -31,6 +35,7 @@ modules = ["monadic.py",
            "convolution.py",
            "bilateral.py",
            "image_blending.py",
+           "image_segmentation.py",
            "utils.py"]
 
 doc_url = "https://mskl.github.io/fit-ni-dzo/"

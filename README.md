@@ -10,6 +10,7 @@ The project is hosted on the CTU gitlab as well as publicly on GitHub. To view t
 - [03: Convolution](https://mskl.github.io/fit-ni-dzo/convolution.html)
 - [04: Bilateral filter](https://mskl.github.io/fit-ni-dzo/bilateral.html)
 - [05: Gradient blending](https://mskl.github.io/fit-ni-dzo/image_blending.html)
+- [06: Image segmentation](https://mskl.github.io/fit-ni-dzo/image_segmentation.html)
 
 ```python
 from dzotools.utils import imgload, arr2img

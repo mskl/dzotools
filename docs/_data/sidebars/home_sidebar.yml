@@ -30,6 +30,9 @@ entries:
     - output: web,pdf
       title: 'Task 5: Gradient blending'
       url: image_blending.html
+    - output: web,pdf
+      title: 'Task 6: Image segmentation'
+      url: image_segmentation.html
     output: web
     title: Homeworks
   output: web

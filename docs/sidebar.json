@@ -8,6 +8,7 @@
     "Task 2: Fourier transform": "fourier.html",
     "Task 3: Convolution": "convolution.html",
     "Task 4: Bilateral filter": "bilateral.html",
-    "Task 5: Gradient blending": "image_blending.html"
+    "Task 5: Gradient blending": "image_blending.html",
+    "Task 6: Image segmentation": "image_segmentation.html"
   }
 }
