@@ -37,7 +37,7 @@ def get_maxflow_graph(back: np.ndarray, color: np.ndarray) -> (np.ndarray, maxfl
 
     graph.add_grid_tedges(
         nodeids,
-        np.all(color == RED, axis=-1) * 50,
+        np.all(color == BLUE, axis=-1) * 50,
         np.all(color == GREEN, axis=-1) * 50,
     )
 
