@@ -23,22 +23,24 @@ def quantize_image(arr):
     return np.where(indexes == 0, WHITE, (np.where(indexes == 1, BLUE, GREEN)))
 
 # Cell
-rescale = lambda v: 255 * np.exp(-v*v / 64)
+rescale = lambda v: 255 * np.exp(-v*v / 32)
 
 # Cell
 def get_maxflow_graph(back: np.ndarray, color: np.ndarray) -> (np.ndarray, maxflow.GraphInt):
     """Calculate the segmentation using maxflow graph optimization.
 
-    Assumes that the color array only contains 2 colors where one
-    of them is red (255, 0, 0) and the other one green (0, 255, 0).
+    Assumes that the color array only contains 2 colors
+    where one of them is blue and the other one green.
     """
+    TERMINAL_MULTIPLIER = 40
+
     graph = maxflow.Graph[int](0, 0)
     nodeids = graph.add_grid_nodes(back.shape)
 
     graph.add_grid_tedges(
         nodeids,
-        np.all(color == BLUE, axis=-1) * 50,
-        np.all(color == GREEN, axis=-1) * 50,
+        np.all(color == BLUE, axis=-1) * TERMINAL_MULTIPLIER,
+        np.all(color == GREEN, axis=-1) * TERMINAL_MULTIPLIER,
     )
 
     minx = rescale(255 - np.minimum(back[:, 1:], back[:, :-1]))
